@@ -2,9 +2,27 @@
 <html>
     <head>
         <title>Snake Game</title>
+        <style>
+            body{
+                display: block;
+            }
+            button{
+                background-color:greenyellow;
+                border: 1px solid teal;
+                width: 304px;
+                height: 80px;
+                color: teal;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+            }
+
+        </style>
     </head>
     <body>
         <canvas id="snake" height="608px" width="608px"></canvas>
+        <br/>
+        <button id="replay">Start again</button>
+        <button id="pause">Pause/Play</button>
         <script src="./js/snake.js"></script>
     </body>
 </html>

@@ -1,5 +1,7 @@
 const canvas = document.getElementById("snake")
 const ctx = canvas.getContext("2d")
+const replayBtn = document.getElementById("replay")
+const pauseBtn = document.getElementById("pause")
 
 //Create the unit
 const box = 32
@@ -26,6 +28,11 @@ down.src = "../audio/down.mp3"
 right.src = "../audio/right.mp3"
 left.src = "../audio/left.src"
 
+let state = 1
+
+replayBtn.addEventListener('click', () => {
+    location.reload()
+})
 
 //Create the snake
 let snake = []
@@ -131,6 +138,7 @@ function draw() {
     {
         clearInterval(game)
         dead.play()
+        alert("Game Over. Your score is " + score)
     }
 
     snake.unshift(newHead)
@@ -142,5 +150,17 @@ function draw() {
 
 //Call draw function every 15 ms
 let game = setInterval(draw, 150)
+
+pauseBtn.addEventListener('click', () => {
+    if(state === 1)
+    {
+        state = 0
+        clearInterval(game)
+    }
+    else{
+        state = 1
+        game = setInterval(draw, 150)
+    }
+})
 
 
